@@ -1,0 +1,22 @@
+<section class="jumbotron jumbotron-fluid bg-green bg-cover text-white mb-0">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="mb-3">Search Pakistan's Open Data</h1>
+            <p><a class="btn btn-outline-light" href="static.html">Learn more about openAsterisk</a></p>
+          </div>
+          <div class="col-md-6 d-flex flex-column-reverse text-right">
+            <form class="">
+              <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="Search datasets..." aria-label="Recipient's username"
+                  aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-default" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+            </form>
+            <p class="lead">{{ _('Search from ') }}{{ h.SI_number_span(stats.dataset_count) }}{{ _(' public datasets') }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
