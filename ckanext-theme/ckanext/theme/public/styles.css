@@ -68,3 +68,64 @@ aside li a:hover i { color: #00A6E1; }
 .container {
     width: 100%;
 }
+
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+    background-color: #00000000;
+    border-color: #00000000;
+}
+
+.nav > li > a:hover, .nav > li > a:focus, .nav-pills > li.active > a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #00000000;
+}
+
+.nav>li>a:hover, .nav>li>a:focus {
+    text-decoration: none;
+    background-color: #00000000;
+}
+
+
+.masthead .navigation .nav-pills li a:hover, .masthead .navigation .nav-pills li a:focus, .masthead .navigation .nav-pills li.active a {
+    background-color: #00000000;
+    color: #eeeeeeee;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    color: #16181b;
+    text-decoration: none;
+    background-color: #f8f9fa;
+}
+
+.account-masthead {
+    background-color: rgb(26, 26, 26);
+}
+/* The "bubble" containing the number of new notifications. */
+.account-masthead .account .notifications a span {
+  background-color: rgb(0,0,0);
+}
+/* The text and icons in the user account info. */
+.account-masthead .account ul li a {
+  color: rgba(255, 255, 255, 0.6);
+}
+/* The user account info text and icons, when the user's pointer is hovering
+   over them. */
+.account-masthead .account ul li a:hover {
+  color: rgba(255, 255, 255, 0.7);
+  background-color: black;
+}
+
+.site-footer,
+body {
+  background-color: rgb(40, 40, 40);
+}
+
+a:hover {
+    color: #00000000;
+}
+
+@media screen and (min-width: 768px)
+.jumbotron h1, .jumbotron .h1 {
+    font-size: 4.5rem;
+}

@@ -1,48 +1,51 @@
 {% ckan_extends %}
-{% block header_wrapper %}
+{% block header_wrapper %} 
 
-{% block header_account %}
-{% endblock %}
-
-{% block header_debug %}
-  {% if g.debug and not g.debug_supress_header %}
-    <div class="debug">Controller : {{ c.controller }}<br/>Action : {{ c.action }}</div>
-  {% endif %}
-{% endblock %}
-
-<nav class="navbar navbar-default" id="main-navigation">
+<header class="navbar navbar-static-top masthead">
+  {% block header_debug %} 
+    {% if g.debug and not g.debug_supress_header %}
+        <div class="debug">Controller : {{ c.controller }}<br/>Action : {{ c.action }}</div>
+    {% endif %} 
+  {% endblock %}
+    
   <div class="container">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navigation-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+      
+    <hgroup class="{{ g.header_class }} navbar-left">
+      {% block header_logo %} 
+        {% if g.site_logo %}
+            <a class="navbar-brand" href="index.html"><i class="fas fa-xs fa-spin fa-asterisk"></i> openAsterisk</a>
+        {% else %}
+          <h1>
+            <a href="{{ h.url_for('home.index') }}">{{ g.site_title }}</a>
+          </h1>
+            {% if g.site_description %}
+                <h2>{{ g.site_description }}</h2>
+            {% endif %} 
+        {% endif %}
+       {% endblock %}
+    </hgroup>
+    <div class="navbar-right">
+      <button data-target="#main-navigation-toggle" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
+        <span class="fa fa-bars"></span>
       </button>
-      <a class="navbar-brand" href="{{ h.url('home') }}">
-        <img src="/content/themes/wp-ogdch-theme/assets/images/logo_horizontal.svg" onerror="this.onerror=null;this.src='/content/themes/wp-ogdch-theme/assets/images/logo_horizontal.png'" class="navbar-brand-image" alt="{{ g.site_title }}" title="{{ g.site_title }}" />
-      </a>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="main-navigation-collapse" role="navigation">
-      <div>
-        <ul class="nav navbar-nav navbar-right">
-          {{ h.build_nav_main(
-            ('search', _('Data')),
-            ('organizations_index', _('Organizations')),
+    <div class="collapse navbar-collapse" id="main-navigation-toggle">
+      {% block header_site_navigation %}
+      <nav class="section navigation">
+        <ul class="nav nav-pills">
+            {{ h.build_nav_main(
+                ('search', _('Data')),
+                ('organizations_index', _('Organizations')),
+                ('group_index', _('Groups')),
           ) }}
-	  <li>
-            <a href="{{ h.url('/app') }}">{{ _('Groups') }}</a>
-          </li>
           <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">{{ _('About') }} <span class="caret"></span></a>
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">{{ _('About') }} </a>
             <ul role="menu" class="dropdown-menu">
               <li>
                 <a href="{{ h.url('/about') }}">{{ _("What is Open Asterisk") }}</a>
-              </li>
-              
+                  </li>
+
               <li>
                 <a href="{{ h.url('/faq') }}">{{ _('Frequently Asked Questions') }}</a>
               </li>
@@ -51,10 +54,21 @@
               </li>
             </ul>
           </li>
-          
         </ul>
-      </div>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container -->
-</nav>
+      </nav>
+      {% endblock %} 
+    </div>
+  </div>
+</header>
 {% endblock %}
+
+{#
+{% block header_site_navigation_tabs %} 
+    {{ h.build_nav_main( 
+        ('search', _('Datasets')), 
+        ('organizations_index', _('Organizations')),
+        ('group_index', _('Groups')), 
+        ('home.about', _('About')) ) }} 
+{% endblock %}
+
+#}

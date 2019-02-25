@@ -6,6 +6,11 @@
     <div class="hide"><a href="#content">{{ _('Skip to content') }}</a></div>
   {% endblock %}
 
+  {#
+  Override the header on a page by page basis by extending this block. If
+  making sitewide header changes it is preferable to override the header.html
+  file.
+  #}
   {%- block header %}
     {% include "header.html" %}
   {% endblock -%}
@@ -49,47 +54,35 @@
 
             {% block secondary %}
               <aside class="secondary col-sm-3">
+                {#
+                The secondary_content block can be used to add content to the
+                sidebar of the page. This is the main block that is likely to be
+                used within a template.
+
+                Example:
+
+                  {% block secondary_content %}
+                    <h2>A sidebar item</h2>
+                    <p>Some content for the item</p>
+                  {% endblock %}
+                #}
                 {% block secondary_content %}{% endblock %}
               </aside>
             {% endblock %}
 
             {% block primary %}
-              {% snippet 'home/index.html' %}
-                            
-{#              <div class="primary col-sm-9 col-xs-12">
-                
-                {% block primary_content %}
-                  <article class="module">
-                    {% block page_header %}
-                      <header class="module-content page-header">
-                        {% if self.content_action() | trim %}
-                          <div class="content_action">
-                            {% block content_action %}{% endblock %}
-                          </div>
-                        {% endif %}
-                        <ul class="nav nav-tabs">
-                          {% block content_primary_nav %}{% endblock %}
-                        </ul>
-                      </header>
-                    {% endblock %}
-                    <div class="module-content">
-                      {% if self.page_primary_action() | trim %}
-                        <div class="page_primary_action">
-                          {% block page_primary_action %}{% endblock %}
-                        </div>
-                      {% endif %}
-                      {% block primary_content_inner %}
-                      {% endblock %}
-                    </div>
-                  </article>
-                {% endblock %}
-              </div>
-#}            {% endblock %}
+           {% endblock %}
+         
         {% endblock %}
       </div>
     </div>
   {% endblock -%}
 
+  {#
+  Override the footer on a page by page basis by extending this block. If
+  making sitewide header changes it is preferable to override the footer.html-u
+  file.
+  #}
   {%- block footer %}
     {% include "footer.html" %}
   {% endblock -%}
