@@ -2,15 +2,10 @@
 
 {%- block page -%}
 
-  {% block skip %}
-    <div class="hide"><a href="#content">{{ _('Skip to content') }}</a></div>
-  {% endblock %}
-
   {%- block header %}
     {% include "header.html" %}
   {% endblock -%}
 
-  {# The content block allows you to replace the content of the page if needed #}
   {%- block content %}
     {% block maintag %}<div role="main">{% endblock %}
       <div id="content" class="container">
@@ -40,10 +35,6 @@
             </div>
           {% endblock %}
 
-            {#
-            The pre_primary block can be used to add content to before the
-            rendering of the main content columns of the page.
-            #}
             {% block pre_primary %}
             {% endblock %}
 
@@ -54,10 +45,7 @@
             {% endblock %}
 
             {% block primary %}
-              {% snippet 'home/index.html' %}
-                            
-{#              <div class="primary col-sm-9 col-xs-12">
-                
+              <div class="primary col-sm-9 col-xs-12">
                 {% block primary_content %}
                   <article class="module">
                     {% block page_header %}
@@ -84,10 +72,10 @@
                   </article>
                 {% endblock %}
               </div>
-#}            {% endblock %}
+            {% endblock %}
+          </div>
         {% endblock %}
       </div>
-    </div>
   {% endblock -%}
 
   {%- block footer %}
