@@ -1,19 +1,17 @@
 {% ckan_extends %}
+
 {% block header_wrapper %} 
 
-<header class="navbar navbar-static-top masthead">
+<header class="navbar navbar-static-top masthead" style="display: block; padding-right: 10rem;">
   {% block header_debug %} 
     {% if g.debug and not g.debug_supress_header %}
         <div class="debug">Controller : {{ c.controller }}<br/>Action : {{ c.action }}</div>
     {% endif %} 
   {% endblock %}
     
-  <div class="container">
-      
-    <hgroup class="{{ g.header_class }} navbar-left">
       {% block header_logo %} 
         {% if g.site_logo %}
-            <a class="navbar-brand" href="index.html"><i class="fas fa-xs fa-spin fa-asterisk"></i> openAsterisk</a>
+            <a class="navbar-brand" href="{{ h.url_for('home.index') }}"><i class="fas fa-xs fa-spin fa-asterisk"></i> openAsterisk</a>
         {% else %}
           <h1>
             <a href="{{ h.url_for('home.index') }}">{{ g.site_title }}</a>
@@ -23,16 +21,10 @@
             {% endif %} 
         {% endif %}
        {% endblock %}
-    </hgroup>
-    <div class="navbar-right">
-      <button data-target="#main-navigation-toggle" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-        <span class="fa fa-bars"></span>
-      </button>
-    </div>
 
     <div class="collapse navbar-collapse" id="main-navigation-toggle">
       {% block header_site_navigation %}
-      <nav class="section navigation">
+     
         <ul class="nav nav-pills">
             {{ h.build_nav_main(
                 ('search', _('Data')),
@@ -40,8 +32,8 @@
                 ('group_index', _('Groups')),
           ) }}
           <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">{{ _('About') }} </a>
-            <ul role="menu" class="dropdown-menu">
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">{{ _('About') }}</a>
+            <ul role="menu" class="dropdown-menu" style="font-size: 1.50rem;">
               <li>
                 <a href="{{ h.url('/about') }}">{{ _("What is Open Asterisk") }}</a>
                   </li>
@@ -55,11 +47,46 @@
             </ul>
           </li>
         </ul>
-      </nav>
+      
       {% endblock %} 
     </div>
-  </div>
+
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navigation-toggle" aria-controls="main-navigation-toggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+    </button>
+
 </header>
+
+<section class="jumbotron jumbotron-fluid bg-green bg-cover text-white mb-0">
+      <div class="container">
+        <div class="row" style="padding-left: 110px; padding-right: 110px;">
+          <div class="col-md-6">
+		{% if href == "{{ h.url_for('home.index') }}" or href == "index.html" %}
+            		<h1 class="mb-3">Search Pakistan's Open Data</h1>
+            		<p><a class="btn btn-outline-light" href="static.html">Learn more about openAsterisk</a></p>
+        	{% else %}
+           		{% block toolbar %}
+            			<div class="toolbar">
+              				{% block breadcrumb %}
+                				{% if self.breadcrumb_content() | trim %}
+                  					<ol class="breadcrumb">
+                    						{% snippet 'snippets/home_breadcrumb_item.html' %}
+                    						{% block breadcrumb_content %}{% endblock %}
+                  					</ol>
+				                {% endif %}
+              				{% endblock %}
+            			</div>
+          		{% endblock %} 
+        	{% endif %} 
+          </div>
+                
+          <div class="col-md-6 d-flex flex-column-reverse text-right">
+              {% snippet "home/snippets/search-bar.html" %}       
+          </div>
+        
+        </div>
+      </div>
+</section>
 {% endblock %}
 
 {#
@@ -70,5 +97,4 @@
         ('group_index', _('Groups')), 
         ('home.about', _('About')) ) }} 
 {% endblock %}
-
 #}

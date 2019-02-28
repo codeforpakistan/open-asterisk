@@ -38,7 +38,7 @@
             <p>
                 <span class="display-3 d-block text-secondary">
                     <a href="{{ h.url_for(controller='group', action='index') }}" style="text-decoration: none; color: #343A40; font-size: 2rem;">
-                    <b style="font-size: 8rem;">{{ h.SI_number_span(stats.group_count) }}</b>
+                    <b style="font-size: 8rem;">{{ h.SI_number_span(num_tags) }}</b>
                     <br>
                     {{ _('Tag') if stats.tags_count == 1 else _('Tags') }}
                     </a>
