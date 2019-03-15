@@ -39,9 +39,7 @@
             {% endblock %}
 
             {% block secondary %}
-              <aside class="secondary col-sm-3">
-                {% block secondary_content %}{% endblock %}
-              </aside>
+		{% block secondary_content %}{% endblock %}
             {% endblock %}
 
             {% block primary %}
@@ -76,6 +74,8 @@
           </div>
         {% endblock %}
       </div>
+
+
   {% endblock -%}
 
   {%- block footer %}

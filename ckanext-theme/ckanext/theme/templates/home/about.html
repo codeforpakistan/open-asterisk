@@ -1,0 +1,54 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ _('About') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for _('About'), 'home.about' %}</li>
+{% endblock %}
+
+{% block primary_content %}
+    <div class="module-content">
+      {% block about %}
+        {% if g.site_about %}
+          {{ h.render_markdown(g.site_about) }}
+        {% else %}
+          {% snippet 'home/snippets/about_text.html' %}
+        {% endif %}
+      {% endblock %}
+    </div>
+{% endblock %}
+
+{% block secondary %}
+<aside class="secondary col-sm-3">
+
+<style>
+    .about-ul li {
+    padding: 10px;
+    padding-left: 0px;
+    }
+    .about-ul li:hover{
+        background-color: #cccccc;
+    }
+    .about-ul li a{
+            padding: 10px;
+    text-decoration: none;
+    color: #00A6E1;
+    background-color: transparent;
+    }
+    .about-ul li a:hover{
+        color: #00A6E1;
+	background-color: transparent;
+    }   
+</style>
+	
+   <ul class="about-ul" style="color: #00a6e1; list-style-type: none; font-size: 16px; margin-left: -22px; margin-top: 30px;" >
+	<li><a href="{{ h.url('/about') }}">What is openAsterisk</a></li>
+	<li><a href="#">Frequently Asked Questions</a></li>
+	<li><a href="#">Terms of Use</a></li>
+        <li><a href="#">Legal Framework</a></li>
+        <li><a href="#">Source Code</a></li>
+        <li><a href="#">Contact Us</a></li>
+   </ul>
+
+</aside>
+{% endblock %}
