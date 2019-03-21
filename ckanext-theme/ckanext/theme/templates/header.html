@@ -61,21 +61,11 @@
       <div class="container">
         <div class="row" style="padding-left: 110px; padding-right: 110px;">
           <div class="col-md-6">
-{#		{% if {{ h.url_for('home.index') }} %}
-        		<h1 class="mb-3">Search Pakistan's Open Data</h1>
+{#		{% if (class =active) == "{{ h.url_for('home.index') }}" %}
+  #}      		<h1 class="mb-3">Search Pakistan's Open Data</h1>
         		<p><a class="btn btn-outline-light" href="static.html">Learn more about openAsterisk</a></p>
-		{% else %}  #}
-                	{% block breadcrumb %}
-                        	{% if self.breadcrumb_content() | trim %}
-                                	<ol class="breadcrumb">
-                                        	{% snippet 'snippets/home_breadcrumb_item.html' %}
-                                        	{% block breadcrumb_content %}{% endblock %}
-                                	</ol>
-                        	{% endif %}
-                	{% endblock %}
-                	
-{#		{% endif %}  #}
-         </div>
+{#		{% endif %}  
+  #}       </div>
                 
           <div class="col-md-6 d-flex flex-column-reverse text-right">
               {% snippet "home/snippets/search-bar.html" %}       
