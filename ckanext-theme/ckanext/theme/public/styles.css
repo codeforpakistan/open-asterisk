@@ -50,18 +50,6 @@ aside li a:hover i { color: #00A6E1; }
     font-size: 2rem;
 }
 
-.nav-pills > li > a {
-    border-radius: 4px;
-    font-size: 1.65rem;
-    color: #eee;
-}
-
-.nav > li > a:hover, .nav > li > a:focus, .nav-pills > li.active > a {
-    text-decoration: none;
-    color: #fff;
-    background-color: #00000000;
-}
-
 @media (min-width: 768px)
 .navbar-right {
     float: right !important;
@@ -165,4 +153,15 @@ aside .about-ul li a{
 
 aside .about-ul li a:hover{
 	color: #00A6E1;
+}
+
+.nav-pills > li > a {
+    border-radius: 4px;
+    font-size: 1.65rem;
+    color: #eee;
+}
+.nav > li > a:hover, .nav > li > a:focus, .nav-pills > li.active > a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #00000000;
 }

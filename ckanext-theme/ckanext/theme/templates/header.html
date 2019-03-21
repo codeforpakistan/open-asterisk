@@ -22,10 +22,18 @@
         {% endif %}
        {% endblock %}
 
+<style>
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+	color: #fff;
+}
+
+</style>
+
     <div class="collapse navbar-collapse" id="main-navigation-toggle">
       {% block header_site_navigation %}
      
-        <ul class="nav nav-pills">
+        <ul class="nav nav-pills" style="color: #eee;">
             {{ h.build_nav_main(
                 ('search', _('Data')),
                 ('organizations_index', _('Organizations')),
@@ -62,8 +70,8 @@
         <div class="row" style="padding-left: 110px; padding-right: 110px;">
           <div class="col-md-6">
 {#		{% if (class =active) == "{{ h.url_for('home.index') }}" %}
-  #}      		<h1 class="mb-3">Search Pakistan's Open Data</h1>
-        		<p><a class="btn btn-outline-light" href="static.html">Learn more about openAsterisk</a></p>
+  #}      		<h1 class="mb-3" style="font-size: 5.5rem;">Search Pakistan's Open Data</h1>
+        		<p><a class="btn btn-outline-light" style="font-size: 1.5rem;"  href="{{ h.url('/about') }}">Learn more about openAsterisk</a></p>
 {#		{% endif %}  
   #}       </div>
                 
