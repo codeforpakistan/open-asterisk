@@ -5,7 +5,7 @@ Example:
     {% snippet "organization/snippets/organization_list.html" %}
 #}
 {% block organization_list %}
-    <ul class="media-grid" data-module="media-grid" style="background: transparent; ">
+    <ul class="media-grid" data-module="media-grid" style="background: transparent; margin-left: -30.5rem; ">
         {% for organization in organizations %}
             {% snippet "organization/snippets/organization_item.html", organization=organization, position=loop.index, show_capacity=show_capacity %}
         {% endfor %}
