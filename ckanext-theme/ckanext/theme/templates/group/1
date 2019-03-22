@@ -22,8 +22,8 @@
     {% set stats = h.get_site_statistics() %}
 
     <b style="font-size: 3rem; float: left; margin-left: -30.5rem; ">{{ h.SI_number_span(stats.group_count) }}{{ _(' Group') if stats.group_count == 1 else _(' Groups') }}</b>
-    
-    <p style="margin-left: -30.5rem;margin-top: 8rem;">Groups are used to create and manage collections of datasets. This could be to catalogue datasets for a particular project or team, or on a particular theme, or as a very simple way to help people find and search published datasets.</p>
+    </br>
+    <p style="margin-left: -30.5rem;">Groups are used to create and manage collections of datasets. This could be to catalogue datasets for a particular project or team, or on a particular theme, or as a very simple way to help people find and search published datasets.</p>
 
     {#  
     {% block groups_search_form %}

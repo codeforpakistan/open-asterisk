@@ -6,7 +6,7 @@ Example:
 #}
 
 {% block group_list %}
-    <ul class="media-grid" data-module="media-grid" style="background: transparent;" >
+    <ul class="media-grid" data-module="media-grid" style="background: transparent;margin-left: -30.5rem;" >
         {% block group_list_inner %}
             {% for group in groups %}
                 {% snippet "group/snippets/group_item.html", group=group, position=loop.index %}
