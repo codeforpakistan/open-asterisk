@@ -2,6 +2,7 @@
 
 {% block header_wrapper %} 
 
+
 <header class="navbar navbar-static-top masthead" style="display: block; padding-right: 10rem;">
   {% block header_debug %} 
     {% if g.debug and not g.debug_supress_header %}
@@ -23,17 +24,15 @@
        {% endblock %}
 
 <style>
-
-.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
-	color: #fff;
+.nav-pills>a {
+        color:#000;
 }
-
 </style>
 
     <div class="collapse navbar-collapse" id="main-navigation-toggle">
       {% block header_site_navigation %}
      
-        <ul class="nav nav-pills" style="color: #eee;">
+        <ul class="nav nav-pills" style=" font-size: 1.5rem;">
             {{ h.build_nav_main(
                 ('search', _('Data')),
                 ('organizations_index', _('Organizations')),
@@ -43,7 +42,7 @@
             <a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true">{{ _('About') }}</a>
             <ul role="menu" class="dropdown-menu" style="font-size: 1.50rem;">
               <li>
-                <a href="{{ h.url('/about') }}">{{ _("What is Open Asterisk") }}</a>
+                <a href="{{ h.url('/about') }}">{{ _("What is Open Asterisk?") }}</a>
                   </li>
 
               <li>
