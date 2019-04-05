@@ -2,6 +2,13 @@ body {
 	font-size: 2.5rem;
 }
 
+@media (min-width: 768px) {
+  [role=main],
+  .main {
+    background-color: #F8F9FA;
+  }
+}
+
 .bg-blue { background-color: #00A6E1; }
 .text-blue { color: #00A6E1; }
 .bg-green { background-color: #6DBE4A; }
