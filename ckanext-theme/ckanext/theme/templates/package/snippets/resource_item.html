@@ -1,3 +1,17 @@
+<style>
+
+.btn-group{
+   background-color: #007bff;
+   padding: 5px 10px;
+   border-radius: 5px;
+}
+
+.btn-group:hover{
+   background-color: #0357b2;
+}
+
+</style>
+
 {% set url_action = 'resource.edit' if url_is_edit and can_edit else 'resource.read' %}
 {% set url = h.url_for(url_action, id=pkg.name, resource_id=res.id) %}
 
@@ -16,50 +30,18 @@
     </p>
   {% endblock %}
   {% block resource_item_explore %}
-  {% if not url_is_edit %}  
-  <div class="dropdown btn-group">
-    <a href="#" class="btn btn-primary" data-toggle="dropdown">
-      <i class="fa fa-share"></i>
-      {{ _('Explore') }}
-      <span class="caret"></span>
-    </a>
-    <ul class="dropdown-menu">
-      {% block resource_item_explore_links %}
-      <li>
-        <a href="{{ url }}">
-          {% if res.has_views %}
-            <i class="fa fa-bar-chart-o"></i>
-            {{ _('Preview') }}
-          {% else %}
-            <i class="fa fa-info-circle"></i>
-            {{ _('More information') }}
-          {% endif %}
-        </a>
-      </li>
-      {% if res.url and h.is_url(res.url) %}
-      <li>
-        <a href="{{ res.url }}" class="resource-url-analytics" target="_blank">
-          {% if res.has_views or res.url_type == 'upload' %}
-            <i class="fa fa-arrow-circle-o-down"></i>
-            {{ _('Download') }}
-          {% else %}
-            <i class="fa fa-external-link"></i>
-            {{ _('Go to resource') }}
-          {% endif %}
-        </a>
-      </li>
-      {% endif %}
-      {% if can_edit %}
-      <li>
-        <a href="{{ h.url_for('resource.edit', id=pkg.name, resource_id=res.id) }}">
-          <i class="fa fa-pencil-square-o"></i>
-          {{ _('Edit') }}
-        </a>
-      </li>
-      {% endif %}
-      {% endblock %}
-    </ul>
-  </div>
+  {% if not url_is_edit %} 
+     <div class="btn-group">
+       <a href="{{ res.url }}" class="resource-url-analytics" target="_blank" style="color: white;">
+        {% if res.has_views or res.url_type == 'upload' %}
+          <i class="fa fa-download"></i>
+          {{ _('Download') }}
+        {% else %}
+          <i class="fa fa-external-link"></i>
+          {{ _('Go to resource') }}
+        {% endif %}
+      </a>
+    </div> 
   {% endif %}
   {% endblock %}
 </li>

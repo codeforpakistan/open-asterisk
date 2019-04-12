@@ -1,3 +1,11 @@
+<style>
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+	border: transparent;
+}
+
+</style>
+
 <section class="additional-info">
   <h2>{{ _('Additional Info') }}</h2>
   <table class="table" style="margin: 20px; font-size: 16px;">
@@ -5,23 +13,22 @@
       {% block package_additional_info %}
         
         {% if pkg_dict.version %}
-          <tr>
+          <tr style="border: transparent;">
             <th scope="row" class="dataset-label">{{ _("Version") }}</th>
             <td class="dataset-details">{{ pkg_dict.version }}</td>
           </tr>
         {% endif %}
 
         {% if pkg_dict.author %}
-          <tr>
+          <tr style="border: transparent;">
             <th scope="row" class="dataset-label">{{ _("Author") }}</th>
             <td class="dataset-details" property="dc:creator">{{ pkg_dict.author }}</td>
           </tr>
         {% endif %}
         
         {% if pkg_dict.metadata_created %}
-          <tr>
+          <tr style="border: transparent;">
             <th scope="row" class="dataset-label">{{ _("Date Issued") }}</th>
-
             <td class="dataset-details">
                 {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.metadata_created %}
             </td>
@@ -29,7 +36,7 @@
         {% endif %}
         
         {% if pkg_dict.metadata_modified %}
-          <tr>
+          <tr style="border: transparent;">
             <th scope="row" class="dataset-label">{{ _("Last Updated") }}</th>
             <td class="dataset-details">
                 {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.metadata_modified %}
