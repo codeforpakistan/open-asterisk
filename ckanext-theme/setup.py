@@ -17,14 +17,14 @@ setup(
     # http://packaging.python.org/en/latest/tutorial.html#version
     version='0.0.1',
 
-    description='''new theme for open asterisk''',
+    description='''theme for OpenAsterisk''',
     long_description=long_description,
 
     # The project's main homepage.
     url='https://github.com//ckanext-theme',
 
     # Author details
-    author='''''',
+    author='''Shaji Ahmed + Ayesha Akhtar''',
     author_email='''''',
 
     # Choose your license
