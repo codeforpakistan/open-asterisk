@@ -17,11 +17,11 @@
   {% endif %}
 {% endblock %}
 
-{# {% block content_primary_nav %}
+ {% block content_primary_nav %}
   {{ h.build_nav_icon('dataset.read', _('Dataset'), id=pkg.id if is_activity_archive else pkg.name) }}
   {{ h.build_nav_icon('dataset.groups', _('Groups'), id=pkg.id if is_activity_archive else pkg.name) }}
   {{ h.build_nav_icon('dataset.activity', _('Activity Stream'), id=pkg.id if is_activity_archive else pkg.name) }}
-{% endblock %} #}
+{% endblock %} 
 
 {% block secondary_content %}
 
