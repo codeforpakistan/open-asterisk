@@ -28,6 +28,10 @@ within_tertiary
     page and not the left column.
 #}
 
+<style>
+	.secondary-nav li a:hover{background: #eeeeee;}
+</style>
+
 {% block facet_list %}
     {% set hide_empty = hide_empty or false %}
     {% with items = items or h.get_facet_items_dict(name) %}
@@ -53,7 +57,7 @@ within_tertiary
                     {% block facet_list_items %}
                         {% with items = items or h.get_facet_items_dict(name) %}
                             {% if items %}
-                                <nav style="border-width: 0px;">
+                                <nav class="secondary-nav" style="border-width: 0px;">
                                     <ul class="{{ nav_class or 'list-unstyled nav nav-simple nav-facet' }}" style="border-width: 0px;">
                                         {% for item in items %}
                                             {% set href = h.remove_url_param(name, item.name, extras=extras, alternative_url=alternative_url) if item.active else h.add_url_param(new_params={name: item.name}, extras=extras, alternative_url=alternative_url) %}
@@ -65,7 +69,7 @@ within_tertiary
                                         
                                             <li class="{{ nav_item_class or 'nav-item' }}{% if item.active %} active{% endif %}" style="width: -webkit-fill-available; border-width: 0px;">
                                                 <a href="{{ href }}" title="{{ label if label != label_truncated else '' }}" style="margin-left: -33px;">
-                                                    <span class="item-label" style="color: #00A6E1; margin-left: -7px; font-size: 1.75rem;">{{label_truncated }}</span>
+                                                    <span class="item-label" style="color: #00A6E1; margin-left: -7px; font-size: 1.5rem;">{{label_truncated }}</span>
                                                    {#<span class="hidden separator"> - </span>#}
                                                       <span class="item-count badge float-right" style="margin-right: 10px; margin-top: 6px;">{{ count }}</span>
                                                 </a>

@@ -1,0 +1,57 @@
+{% set stats = h.get_site_statistics() %}
+
+<section class="py-5 bg-gray">
+    <div class="container">
+        <div class="d-flex justify-content-around">
+            {% block stats_group %}
+              
+            <p>
+                <span class="display-3 d-block text-secondary">
+                    <a href="{{ h.url_for(controller='package', action='search') }}" style="text-decoration: none; color: #343A40; font-size: 2rem;">
+                    <b style="font-size: 8rem;">{{ h.SI_number_span(stats.dataset_count) }}</b>
+                    <br>
+                    {{ _('Dataset') if stats.dataset_count == 1 else _('Datasets') }}
+                    </a>
+                </span>
+              </p>
+            
+              <p>
+                <span class="display-3 d-block text-secondary">
+                    <a href="{{ h.url_for(controller='organization', action='index') }}" style="text-decoration: none; color: #343A40; font-size: 2rem;">
+                    <b style="font-size: 8rem;">{{ h.SI_number_span(stats.organization_count) }}</b>
+                    <br>
+                    {{ _('Organization') if stats.organization_count == 1 else _('Organizations') }}
+                    </a>
+                  </span>
+            </p>
+            
+            <p>
+                <span class="display-3 d-block text-secondary">
+                    <a href="{{ h.url_for(controller='group', action='index') }}" style="text-decoration: none; color: #343A40; font-size: 2rem;">
+                    <b style="font-size: 8rem;">{{ h.SI_number_span(stats.group_count) }}</b>
+                    <br>
+		    {{ _('Group') if stats.group_count == 1 else _('Groups') }}
+                    </a>
+                </span>
+            </p>
+    
+			{#{% set count = 0 %}
+		{% set _class = _class or 'tag-list' %}
+		
+		    {% for tag in tags %}
+		    	{% set count = count + 1 %}
+		    {% endblock %}	
+ 				 #}      
+            <p>
+                <span class="display-3 d-block text-secondary">
+                    <a href="{{ h.url_for(controller='group', action='index') }}" style="text-decoration: none; color: #343A40; font-size: 2rem;">
+                    <b style="font-size: 8rem;">0</b>
+                    <br>
+                    Tags
+                    </a>
+                </span>
+            </p>
+            {% endblock %}
+        </div>
+    </div>
+</section>

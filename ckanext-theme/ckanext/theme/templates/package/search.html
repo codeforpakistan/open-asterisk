@@ -83,7 +83,7 @@
 
 {% block secondary_content %}
         <div class="filters">
-            <div>
+            <div style="margin-top: 2.5rem;">
                 {% for facet in c.facet_titles %}
                     {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet) }}
                 {% endfor %}
